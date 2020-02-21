@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hamburger {
@@ -16,34 +17,45 @@ public class Hamburger {
         this.meat = meat;
         this.basePrice = basePrice;
         this.breadRoll = breadRoll;
+        this.additionCounter = 1;
+        this.maxNumberOfAddition=4;
+        this.additions = new ArrayList<>();
+
     }
 
     public void addAdditionToHamburger(Addition addition){
         if (additionCounter <= maxNumberOfAddition){
             additions.add(addition);
             additionCounter++;
+            System.out.println(additionCounter);
         }else{
             System.out.println("you cannot add extra addition");
         }
 
     }
 
-    public double totalPrice(){
+    public double getTotalPrice(){
         double totalPrice = basePrice;
-        for (var addition: additions
-             ) {
-            totalPrice += addition.getPrice();
-        }
+            if (additions != null){
+                for (var addition: additions
+                ) {
+                    totalPrice += addition.getPrice();
+                }
+            }
         return totalPrice;
     }
 
     public void getReceipt(){
-        String receit = this.name +" : "+ this.basePrice +"\n";
-        for (var addition:additions
-             ) {
-            receit += addition.getName() + " : " + addition.getPrice()+ "\n";
+        System.out.println(this.name +" : "+ this.basePrice );
+        if (additions != null){
+            for (var addition:additions
+            ) {
+                System.out.println( addition.getName() + " : " + addition.getPrice());
+            }
         }
-        System.out.println(receit);
+    }
+    public void getAddition(){
+        System.out.println(additions);
     }
 
 
