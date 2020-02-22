@@ -12,13 +12,13 @@ public class Hamburger {
     private int maxNumberOfAddition;
     private int additionCounter;
 
-    public Hamburger(String name, String meat, double basePrice, String breadRoll) {
+    public Hamburger(String name, String meat, double basePrice, String breadRoll,int maxNumberOfAddition) {
         this.name = name;
         this.meat = meat;
         this.basePrice = basePrice;
         this.breadRoll = breadRoll;
         this.additionCounter = 1;
-        this.maxNumberOfAddition=4;
+        this.maxNumberOfAddition= maxNumberOfAddition;
         this.additions = new ArrayList<>();
 
     }
